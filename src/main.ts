@@ -20,6 +20,6 @@ async function bootstrap(): Promise<void> {
 
   app.useGlobalInterceptors(new ExceptionInterceptor());
 
-  await app.listen(3000);
+  await app.listen(Number.parseInt(process.env.APP_PORT as string, 10) || 3000);
 }
 bootstrap();
